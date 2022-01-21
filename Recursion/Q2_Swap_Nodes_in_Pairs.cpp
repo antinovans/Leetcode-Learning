@@ -14,11 +14,13 @@ public:
         if(head == nullptr || head->next == nullptr){
             return head;
         }
+        ListNode* firstNode = head;
+        ListNode* secondNode = head->next;
 
-        head->next = swapPairs(head->next->next);
-        head->next->next = head;
+        firstNode->next = swapPairs(secondNode->next);
+        secondNode->next = firstNode;
 
-        return head->next;
+        return secondNode;
     }
 };
 int main(){
